@@ -61,8 +61,7 @@ body {
 
 .header {
   border-bottom: 1px solid #ECECEC;
-  padding-top: 24px;
-  padding-bottom: 25px;
+
 }
 
 .page-header-container {
@@ -73,6 +72,7 @@ body {
 
 .page-nav {
   display: flex;
+  align-items: baseline;
 }
 
 .logo {
@@ -89,8 +89,23 @@ body {
   color: #000000;
 }
 
-.active-page {
+.current {
+  display: inline-block;
   color: var(--accent-color);
+}
+
+.current::after {
+  position: absolute;
+  content: " ";
+  display: block;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 48px;
+    height: 4px;
+  
+    background: #2196F3;
+    border-radius: 2px;
 }
 
 .menu.list {
@@ -103,6 +118,8 @@ body {
 }
 
 .menu-link {
+  padding-top: 24px;
+    padding-bottom: 25px;
   font-weight: 500;
   font-size: 14px;
   line-height: 1.14;
@@ -112,6 +129,10 @@ body {
 .menu-link:hover,
 .menu-link:focus {
   color: var(--accent-color)
+}
+
+.menu-item {
+  position: relative;
 }
 
 .menu-item:not(:last-child) {
@@ -214,6 +235,7 @@ body {
 .backdrop.is-hidden {
   opacity: 0;
   pointer-events: none;
+  visibility: hidden;
 }
 
 .modal-close {
